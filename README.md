@@ -4,9 +4,13 @@
 - [Lý Thuyết](#Lý-Thuyết)
 - [Môi Trường Code](#Môi-Trường-Code)
 - [Câu lệch tiện ích](#Câu-lệch-tiện-ích)
-- [Tiện ích riêng cho ADO.NET](#Tiện-ích-riêng-cho-ADO-NET)
+- [Tiện ích riêng cho ADO.NET](#tiện-ích-riêng-cho-adonet)
 ## Lý Thuyết
+- [Đến Menu](#notebook_with_decorative_cover-Table-of-Contents)
+
 ## Môi Trường Code
+- [Đến Menu](#notebook_with_decorative_cover-Table-of-Contents)
+
  1.Microsoft Visual Studio
  ![moiTruongCode NET](https://user-images.githubusercontent.com/85175337/211482817-51ba2afb-8885-443d-ba1b-938d406c182f.png)
  2.Microsoft SQL Server
@@ -48,6 +52,8 @@ dotnet tool install --global dotnet-ef --version 6.0.1
  ```C# System.data.sqlclient(4.8.3) ```
  
 ## Câu lệch tiện ích
+- [Đến Menu](#notebook_with_decorative_cover-Table-of-Contents)
+
 - Câu lệnh `gen` folder `Modes` sử dụng cho `Entity Framework`:
 ```C#
 dotnet ef dbcontext scaffold "server =localhost; database = Project3_SE1631;uid=sa;pwd=123;" Microsoft.EntityFrameworkCore.SqlServer --output-dir Models
@@ -75,6 +81,7 @@ dotnet ef dbcontext scaffold "server =localhost; database = Northwind;uid=sa;pwd
 ```
 ![onConfi](https://user-images.githubusercontent.com/85175337/211485282-ff519b5a-2b36-4206-b1e1-afe66c9fd940.png)
 ## Tiện ích riêng cho ADO.NET
+- [Đến Menu](#notebook_with_decorative_cover-Table-of-Contents)
 
 Class hỗ trợ khai thác dữ liệu mẫu: 
 ```c#
