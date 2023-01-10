@@ -54,7 +54,7 @@ dotnet tool install --global dotnet-ef --version 6.0.1
  Microsoft.entityframeworkcore.sqlserver(6.0.1)
  ```
  
- ```C# 
+ ```C#
  Microsoft.extensions.configuration.json(6.0.0) 
  ```
  
@@ -64,8 +64,8 @@ dotnet tool install --global dotnet-ef --version 6.0.1
  Microsoft.extensions.configuration.json(6.0.0) 
  ```
  
- ```
- C# System.data.sqlclient(4.8.3) 
+ ```C# 
+ System.data.sqlclient(4.8.3) 
  ```
  
 - Với ASP.NET Core Web App ( Nó có sẵn thư viện json rồi ) :
