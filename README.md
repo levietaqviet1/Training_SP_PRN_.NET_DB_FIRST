@@ -299,6 +299,8 @@ Tiếp theo, trong khối if dưới đó, nó kiểm tra xem DataTable có hơn
 
 ## Tiện ích riêng cho EF
 
+- [Đến Menu](#notebook_with_decorative_cover-Table-of-Contents)
+
 - Lấy danh sách Course :
 
 ```C#
