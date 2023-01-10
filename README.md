@@ -46,29 +46,45 @@ dotnet tool install --global dotnet-ef --version 6.0.1
  
  Trường hợp bạn khai thác dữ liệu từ database bằng `EF (Entity Framework)`
  
- ```C# Microsoft.entityframeworkcore.design(6.0.1) ```
+ ```C# 
+ Microsoft.entityframeworkcore.design(6.0.1) 
+ ```
  
- ```C# Microsoft.entityframeworkcore.sqlserver(6.0.1) ```
+ ```C# 
+ Microsoft.entityframeworkcore.sqlserver(6.0.1)
+ ```
  
- ```C# Microsoft.extensions.configuration.json(6.0.0) ```
+ ```C# 
+ Microsoft.extensions.configuration.json(6.0.0) 
+ ```
  
  Trường hợp bạn khai thác dữ liệu từ database bằng `ADO.NET` 
  
- ```C# Microsoft.extensions.configuration.json(6.0.0) ```
+ ```C# 
+ Microsoft.extensions.configuration.json(6.0.0) 
+ ```
  
- ```C# System.data.sqlclient(4.8.3) ```
+ ```
+ C# System.data.sqlclient(4.8.3) 
+ ```
  
 - Với ASP.NET Core Web App ( Nó có sẵn thư viện json rồi ) :
 
    Trường hợp bạn khai thác dữ liệu từ database bằng `EF (Entity Framework)`
    
- ```C# Microsoft.entityframeworkcore.design(6.0.1) ```
+ ```C# 
+ Microsoft.entityframeworkcore.design(6.0.1)
+ ```
  
- ```C# Microsoft.entityframeworkcore.sqlserver(6.0.1) ``` 
+ ```C# 
+ Microsoft.entityframeworkcore.sqlserver(6.0.1)
+ ``` 
  
   Trường hợp bạn khai thác dữ liệu từ database bằng `ADO.NET` 
   
- ```C# System.data.sqlclient(4.8.3) ```
+ ```C#
+ System.data.sqlclient(4.8.3)
+ ```
  
 ## Câu lệch tiện ích
 
