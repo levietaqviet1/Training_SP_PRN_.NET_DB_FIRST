@@ -5,8 +5,15 @@
 - [Môi Trường Code](#Môi-Trường-Code)
 - [Câu lệch tiện ích](#Câu-lệch-tiện-ích)
 - [Tiện ích riêng cho ADO.NET](#tiện-ích-riêng-cho-adonet)
+- [Tiện ích riêng cho EF](#tiện-ích-riêng-cho-ef)
 ## Lý Thuyết
 - [Đến Menu](#notebook_with_decorative_cover-Table-of-Contents)
+
+.NET là một nền tảng phát triển đa ngôn ngữ được tạo bởi Microsoft. Nó cho phép lập trình viên sử dụng các ngôn ngữ lập trình như C#, F#, và Visual Basic để xây dựng các ứng dụng cho Windows, the web, và các thiết bị di động.
+
+.NET Framework là phiên bản chính của .NET và bao gồm các thư viện và các công cụ để xây dựng và chạy các ứng dụng Windows. .NET Core là một phiên bản của .NET được tạo ra để hỗ trợ các nền tảng khác như Linux và macOS.
+
+...
 
 ## Môi Trường Code
 - [Đến Menu](#notebook_with_decorative_cover-Table-of-Contents)
@@ -243,7 +250,6 @@ namespace DictionaryAppADONET
             catch (Exception ex)
             {
                 MessageBox.Show("executeQuery2 error:" + ex.Message);
-
             }
             return dr;
         }
@@ -273,9 +279,79 @@ hoặc:
 
 `dgDictionry` là 1 DataGirdView có tên là dgDictionry
 
+- Lấy dữ liệu vào trong thẻ trong  Với Windows Forms App 
 
+```C#
+      DataProvider dataProvider = new DataProvider();
+      DataTable dt = dataProvider.executeQuery("
+      SELECT d.WordID , d.Word, d.Meaning , d.EditDate, w.ID  \r\nFROM Dictionary d JOIN WordType w ON d.ID = w.ID\r\n  WHERE d.WordID = " + code);
+                if(dt.Rows.Count > 0)
+                {
+                    txtWord.Text = dt.Rows[0].ItemArray[1].ToString();
+                    txtMeaning.Text = dt.Rows[0].ItemArray[2].ToString();
+                    cbType.SelectedIndex = int.Parse(dt.Rows[0].ItemArray[4].ToString())-1; 
+                } 
+```
 
+Trong code trên, đoạn code đầu tiên tạo ra một đối tượng `DataProvider` và gọi hàm executeQuery trên đối tượng đó để thực thi một truy vấn SQL. Truy vấn này trả về một `DataTable` với kết quả từ các bảng `Dictionary` và `WordType`, với một JOIN giữa chúng trên trường ID. Câu truy vấn còn có một điều kiện WHERE để chỉ lấy các dòng có WordID bằng giá trị của biến code.
 
+Tiếp theo, trong khối if dưới đó, nó kiểm tra xem DataTable có hơn 0 dòng. Nếu có, nó sẽ lấy giá trị đầu tiên trong bảng (vì dùng Rows[0]) và gán giá trị đó cho các `textbox` và `combobox` tương ứng.
+
+## Tiện ích riêng cho EF
+
+- Lấy danh sách Course :
+
+```C#
+ List<Course> course = _context.Courses.Include(x => x.Subject).Include(x => x.Instructor).Include(x => x.Subject)
+                .Include(x => x.Term).Include(x => x.Campus).ToList();
+ course = course.Where(x => x.CourseCode.Equals(search)).ToList();
+```
+
+Trong đoạn code này, `_context` là một đối tượng context của EF, nó chứa các tham chiếu đến các bảng trong cơ sở dữ liệu. `Courses` là một thuộc tính trong `_context` chứa tham chiếu đến bảng `"Courses"`.
+
+`Include` là một phương thức mà `EF` cung cấp để tải các thuộc tính liên kết từ các bảng khác. Ví dụ `x => x.Subject`, dùng để tải thuộc tính `Subject` từ bảng khác và gán cho từng khóa học.
+
+Phương thức `Where` là một phương thức mà LINQ cung cấp để lọc các phần tử trong một danh sách theo một điều kiện. Trong đoạn code này, điều kiện lọc là `x => x.CourseCode.Equals(search)`. Điều kiện này sẽ kiểm tra xem mã khóa học của mỗi khóa học trong danh sách có bằng với giá trị của biến `search` hay không. Nếu bằng thì nó sẽ được giữ lại trong danh sách, ngược lại sẽ bị loại bỏ.
+
+Cụ thể, đoạn code trên sẽ truy vấn cơ sở dữ liệu và lấy tất cả các khóa học trong bảng "`Courses`", và các thuộc tính liên kết với nó như `Subject, Instructor, Term, Campus` được tải theo và gán cho biến course.
+
+- Các LINQ thường dùng
+ 
+`Include` là một phương thức mà `EF` cung cấp để tải các thuộc tính liên kết từ các bảng khác.
+ 
+`Where` là một phương thức mà LINQ cung cấp để lọc các phần tử trong một danh sách theo một điều kiện.
+
+`Skip` là một phương thức của LINQ, nó cho phép bỏ qua một số phần tử đầu tiên trong một danh sách.
+
+```C#
+List<int> numbers = Enumerable.Range(1, 100).ToList();
+var result = numbers.Skip(10).ToList();
+```
+
+`Take` là một phương thức của LINQ, nó cho phép lấy một số phần tử đầu tiên trong một danh sách.
+
+```C#
+List<int> numbers = Enumerable.Range(1, 100).ToList();
+var result = numbers.Take(10).ToList();
+```
+
+`Select`: Chọn các thuộc tính của một đối tượng trong một danh sách.
+
+`OrderBy`: Sắp xếp các phần tử trong một danh sách theo thứ tự tăng dần hoặc giảm dần.
+
+`GroupBy`: Nhóm các phần tử trong một danh sách theo một thuộc tính.
+
+`First`, `FirstOrDefault`: Lấy phần tử đầu tiên trong một danh sách.
+
+`Last`, `LastOrDefault`: Lấy phần tử cuối cùng trong một danh sách.
+
+`Count`, `LongCount` : Đếm số lượng phần tử trong một danh sách.
+
+`Any` : Kiểm tra xem một danh sách có bất kỳ phần tử nào không.
+
+`All` : Kiểm tra xem tất cả các phần tử trong một danh sách có thỏa mãn một điều kiện hay không.
+
+`Sum`, `Min`, `Max` : Tính
 
 
 
