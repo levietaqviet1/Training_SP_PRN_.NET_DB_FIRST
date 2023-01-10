@@ -45,56 +45,76 @@ dotnet tool install --global dotnet-ef --version 6.0.1
  - Với Windows Forms App 
  
  Trường hợp bạn khai thác dữ liệu từ database bằng `EF (Entity Framework)`
+ 
  ```C# Microsoft.entityframeworkcore.design(6.0.1) ```
+ 
  ```C# Microsoft.entityframeworkcore.sqlserver(6.0.1) ```
+ 
  ```C# Microsoft.extensions.configuration.json(6.0.0) ```
  
  Trường hợp bạn khai thác dữ liệu từ database bằng `ADO.NET` 
+ 
  ```C# Microsoft.extensions.configuration.json(6.0.0) ```
+ 
  ```C# System.data.sqlclient(4.8.3) ```
  
 - Với ASP.NET Core Web App ( Nó có sẵn thư viện json rồi ) :
 
    Trường hợp bạn khai thác dữ liệu từ database bằng `EF (Entity Framework)`
+   
  ```C# Microsoft.entityframeworkcore.design(6.0.1) ```
+ 
  ```C# Microsoft.entityframeworkcore.sqlserver(6.0.1) ``` 
  
   Trường hợp bạn khai thác dữ liệu từ database bằng `ADO.NET` 
+  
  ```C# System.data.sqlclient(4.8.3) ```
  
 ## Câu lệch tiện ích
+
 - [Đến Menu](#notebook_with_decorative_cover-Table-of-Contents)
 
 - Câu lệnh `gen` folder `Modes` sử dụng cho `Entity Framework`:
+
 ```C#
 dotnet ef dbcontext scaffold "server =localhost; database = Project3_SE1631;uid=sa;pwd=123;" Microsoft.EntityFrameworkCore.SqlServer --output-dir Models
 ```
+
 hoặc dùng câu lệch này :
+
 ```C#
 dotnet ef dbcontext scaffold "server =(local); database = PE_PRN211_22FallB5;uid=sa;pwd=123;TrustServerCertificate=true" Microsoft.EntityFrameworkCore.SqlServer --output-dir Models
 ```
 
 - Nếu Database có sự thay đổi mà muốn `update` lại models đã sinh thì dùng lệch: 
+
 ```C#
 dotnet ef dbcontext scaffold "server =localhost; database = MyDB2;uid=sa;pwd=123;TrustServerCertificate=true" Microsoft.EntityFrameworkCore.SqlServer -o Models -f  
 ```
 
 - Trong 1 vài trường hợp bạn chỉ muốn lấy 1 vài class trong database thì dùng lệch: 
+
 ```C#
 dotnet ef dbcontext scaffold "server =localhost; database = Northwind;uid=sa;pwd=123;TrustServerCertificate=true" Microsoft.EntityFrameworkCore.SqlServer -o Models -t class1
 ```
+
 `-t` rồi nhập tên class đó
 
 - Đoạn code đọc file json trong hàm onconfig: ( với Entity Framework nhớ thay vào hàm đc dạy trong class có đuôi Context.cs )
+
 ```C#
                 var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
                 optionsBuilder.UseSqlServer(config.GetConnectionString("MyCnn"));
 ```
+
 ![onConfi](https://user-images.githubusercontent.com/85175337/211485282-ff519b5a-2b36-4206-b1e1-afe66c9fd940.png)
+
 ## Tiện ích riêng cho ADO.NET
+
 - [Đến Menu](#notebook_with_decorative_cover-Table-of-Contents)
 
 Class hỗ trợ khai thác dữ liệu mẫu: 
+
 ```c#
 using System;
 using System.Collections.Generic;
@@ -214,8 +234,11 @@ namespace DictionaryAppADONET
     }
 }
 ```
+
 Ví dụ lấy dữ liệu 
+
 - Lấy tất cả WordType:
+
 ```C#
  DataProvider dataProvider = new DataProvider();
  string strSelect = ("select * from WordType");
@@ -223,11 +246,15 @@ Ví dụ lấy dữ liệu
  cbType.DisplayMember = "TypeName";
  cbType.ValueMember = "ID";
 ```
+
 `cbType` là 1 ComboBox có tên là cbType
+
 hoặc: 
+
 ```C#
   dgDictionry.DataSource = dataProvider.executeQuery(" SELECT d.WordID , d.Word, d.Meaning , d.EditDate, w.TypeName\n  FROM Dictionary d JOIN WordType w ON d.ID 
 ```
+
 `dgDictionry` là 1 DataGirdView có tên là dgDictionry
 
 
