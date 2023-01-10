@@ -3,10 +3,19 @@
 # :notebook_with_decorative_cover: Table of Contents
 - [Lý Thuyết](#Lý-Thuyết)
 - [Môi Trường Code](#Môi-Trường-Code)
+- [Câu lệch tiện ích](#Câu-lệch-tiện-ích)
 ## Lý Thuyết
 ## Môi Trường Code
  1.Microsoft Visual Studio
- ![MVC](https://lh3.googleusercontent.com/dagXSn0w0-a3cUztUQu4_i_AMoeWFnfOhr5WzEhB10VKqUMplObDMAkjc6l4kzDXe7Zbl6dt-hdlQUc2pmvdFccb-Si3I-gkdiBVr1zW3X9o2r9IJUcwtPhaD9C9Ije0LoOtGb9e9nVRJNPhbyqIIib1l7B5maSTZX1yij76UTYBkJyVc6Jcs_c2o48j_Jx8sT4UNGBEa6YhlWNNfA6f7VAVxwub2uJXKMnuD6Vl265-ewghv-mr02GDGUiMrVK7YZuEboALqxpXYsvMFL94auMfE2SrUxSrQNuMNZQhg6XREqqZZYqDlRTslJ582FEHnNXuJm8xzHlViJMKJBgHy7zJ3ibAW2D3Um4l8D16hK9F1af7SR8saD3VRAq9y6FsyZCUf8cVGzpYOR7QgTcCsIL-XA_oPYaRg-2GroqXCusNvmHa9-qcEjh08YrW2P8ZXYLVH8ayP2SvqZuDAjRZ6f4aWCxCrRTuNpH4Js34dk-JXbrPOS9PdPYHfcTprRnjdpTHKJXqJ925082c8EW4p6hJUqTQRHB6L-b8VyC8DblXjhxLa-j2LkLbAAK72gO91Ji_uWDMMJ5tBB7V5DHnjG3gDd337TGne0QW7F_HDSRqp1-qh9LrX5jbJAJZizS1NE-P1AKiE6dp315uN-U1ZGiLknn8s2RLLS89jf8HEWwcK7-rPLia--4a5YViI70jpwnio_vfk5f_9cZRzX8C_AIbCR3CqpgsvcnXublt9BSznFfPOz98DYzovXvOcr0iLoArd6rnuDrXcPYU80X5Dh2DC10VzvWAkUue6GXwMAHgyBMAIBZQaimHcmR20oxvHcipwWC2CaxDZEI-Cs_6Q2cblchYcq2cGWcKo3Xnd_t-5nqj9yFR_pawCuRPLJS-0tsLJ-rZHUN1bVfjIi-rsvd46d_3k13bP5z4G-B6NF82HGeLhmPJJ1qeZCaQlHBFbfb1qRarwAIhyK_uWRluhrn6RJA_qmoDNYU4ISifGNibXNtFh6oCL0g=w942-h492-no?authuser=1)
+ ![moiTruongCode NET](https://user-images.githubusercontent.com/85175337/211482817-51ba2afb-8885-443d-ba1b-938d406c182f.png)
  2.Microsoft SQL Server
- ![323356093_559757492674643_4446547789575124994_n](https://user-images.githubusercontent.com/85175337/211482665-2861bc09-1884-4525-be0e-50217082cd19.jpg)
+## Câu lệch tiện ích
+Câu lệnh gen folder `Modes` sử dụng cho `Entity Framework`:
+```C#
+dotnet ef dbcontext scaffold "server =localhost; database = Project3_SE1631;uid=sa;pwd=123;" Microsoft.EntityFrameworkCore.SqlServer --output-dir Models
+```
+hoặc dùng câu lệch này:
+```C#
+dotnet ef dbcontext scaffold "server =(local); database = PE_PRN211_22FallB5;uid=sa;pwd=123;TrustServerCertificate=true" Microsoft.EntityFrameworkCore.SqlServer --output-dir Models
+```
 
