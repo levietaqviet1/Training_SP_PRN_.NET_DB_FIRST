@@ -3,7 +3,7 @@
 # :notebook_with_decorative_cover: Table of Contents
 - [Lý Thuyết](#Lý-Thuyết)
 - [Môi Trường Code](#Môi-Trường-Code)
-- [Câu lệch tiện ích](#Câu-lệch-tiện-ích)
+- [Câu lệch tiện ích cài đặt EF](#Câu-lệch-tiện-ích-cài-đặt-EF)
 - [Tiện ích riêng cho ADO.NET](#tiện-ích-riêng-cho-adonet)
 - [Tiện ích riêng cho EF](#tiện-ích-riêng-cho-ef)
 ## Lý Thuyết
@@ -93,7 +93,7 @@ dotnet tool install --global dotnet-ef --version 6.0.1
  System.data.sqlclient(4.8.3)
  ```
  
-## Câu lệch tiện ích
+## Câu lệch tiện ích cài đặt EF
 
 - [Đến Menu](#notebook_with_decorative_cover-Table-of-Contents)
 
