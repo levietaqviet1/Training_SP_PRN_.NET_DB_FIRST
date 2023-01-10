@@ -337,19 +337,48 @@ var result = numbers.Take(10).ToList();
 
 `Select`: Chọn các thuộc tính của một đối tượng trong một danh sách.
 
+```C#
+var selectedStudents = students.Select(s => new { s.Name, s.Major }).ToList();
+```
+
 `OrderBy`: Sắp xếp các phần tử trong một danh sách theo thứ tự tăng dần hoặc giảm dần.
+
+```C#
+var orderedStudents = students.OrderBy(s => s.Name).ToList();
+```
 
 `GroupBy`: Nhóm các phần tử trong một danh sách theo một thuộc tính.
 
+```C#
+var groupedStudents = students.GroupBy(s => s.Major);
+```
+
 `First`, `FirstOrDefault`: Lấy phần tử đầu tiên trong một danh sách.
+
+```C#
+var oldestStudent = students.OrderByDescending(s => s.Age).First();
+```
 
 `Last`, `LastOrDefault`: Lấy phần tử cuối cùng trong một danh sách.
 
 `Count`, `LongCount` : Đếm số lượng phần tử trong một danh sách.
 
+```C#
+List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+int evenCount = numbers.Count(n => n % 2 == 0);
+```
+
 `Any` : Kiểm tra xem một danh sách có bất kỳ phần tử nào không.
 
+```C#
+var isAnyStudentOver25 = students.Any(s => s.Age > 25);
+```
+
 `All` : Kiểm tra xem tất cả các phần tử trong một danh sách có thỏa mãn một điều kiện hay không.
+
+```C#
+var isAllStudentsOver20 = students.All(s => s.Age > 20);
+```
 
 `Sum`, `Min`, `Max` : Tính
 
