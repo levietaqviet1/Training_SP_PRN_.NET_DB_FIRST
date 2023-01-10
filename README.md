@@ -13,8 +13,11 @@
 
  1.Microsoft Visual Studio
  ![moiTruongCode NET](https://user-images.githubusercontent.com/85175337/211482817-51ba2afb-8885-443d-ba1b-938d406c182f.png)
+ 
  2.Microsoft SQL Server
+ 
  3.Kiểm tra môi trường dotnet
+ 
  Mở Command Prompt
  ![compa](https://user-images.githubusercontent.com/85175337/211512804-849a33f3-3943-441e-88e9-6a9e44ea8194.png)
 Code kiểm tra môi trường : 
