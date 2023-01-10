@@ -12,6 +12,7 @@
 - [Đến Menu](#notebook_with_decorative_cover-Table-of-Contents)
 
  1.Microsoft Visual Studio
+ 
  ![moiTruongCode NET](https://user-images.githubusercontent.com/85175337/211482817-51ba2afb-8885-443d-ba1b-938d406c182f.png)
  
  2.Microsoft SQL Server
@@ -19,20 +20,27 @@
  3.Kiểm tra môi trường dotnet
  
  Mở Command Prompt
+ 
  ![compa](https://user-images.githubusercontent.com/85175337/211512804-849a33f3-3943-441e-88e9-6a9e44ea8194.png)
+ 
 Code kiểm tra môi trường : 
+
 ```C#
 dotnet tool list --global
 ```
 Code gỡ bàn thừa nếu version dưới 6. : 
+
 ```C#
 dotnet tool uninstall  --global dotnet-ef
 ```
 Bản cần cài đặt:
+
 ```C#
 dotnet tool install --global dotnet-ef --version 6.0.1
  ```
+ 
  `Note`: tùy thời điểm tuy nhiên hiện tại 2022 là từ 6.
+ 
  4.Packages cần cài để code
  - Với Windows Forms App 
  
