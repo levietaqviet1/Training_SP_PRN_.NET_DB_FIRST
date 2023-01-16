@@ -132,6 +132,34 @@ dotnet ef dbcontext scaffold "server =localhost; database = Northwind;uid=sa;pwd
 
 ![onConfi](https://user-images.githubusercontent.com/85175337/211485282-ff519b5a-2b36-4206-b1e1-afe66c9fd940.png)
 
+Text trong appsettings.json :
+```C#
+{
+  "ConnectionStrings": {
+    "MyCnn": "server=localhost;database=MyDB2;uid=sa;pwd=123"
+  }
+}
+```
+
+Với ADO nên sài như này
+
+```C#
+{
+  "ConnectionStrings": {
+    "MyCnn": "server=localhost;database=PRN211DB;uid=sa;pwd=123;MultipleActiveResultSets=True"
+  }
+}
+```
+
+```C#
+Với câu Q2 PE nên dùng 
+{
+  "ConnectionStrings": {
+    "MyCnn": "server=(local);database=MySaleDB;uid=sa;pwd=123;TrustServerCertificate=true"
+  }
+}
+```
+
 ## Tiện ích riêng cho ADO.NET
 
 - [Đến Menu](#notebook_with_decorative_cover-Table-of-Contents)
