@@ -151,8 +151,9 @@ Với ADO nên sài như này
 }
 ```
 
-```C#
 Với câu Q2 PE nên dùng 
+
+```C#
 {
   "ConnectionStrings": {
     "MyCnn": "server=(local);database=MySaleDB;uid=sa;pwd=123;TrustServerCertificate=true"
