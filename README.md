@@ -25,6 +25,9 @@
  
  2.Microsoft SQL Server
  
+ ![image](https://user-images.githubusercontent.com/85175337/216105122-35994c7d-2226-4743-a1d6-415e9fc952fc.png)
+
+ 
  3.Kiểm tra môi trường dotnet
  
  Mở Command Prompt
