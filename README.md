@@ -2,7 +2,8 @@
 
 # :notebook_with_decorative_cover: Table of Contents
 - [Lý Thuyết](#Lý-Thuyết)
-- [Môi Trường Code](#Môi-Trường-Code)
+- [Môi Trường Code](#Môi-Trường-Code) 
+- [Packages cần cài để code](#Packages-cần-cài-để-code)
 - [Câu lệch tiện ích cài đặt EF](#Câu-lệch-tiện-ích-cài-đặt-EF)
 - [Tiện ích riêng cho ADO.NET](#tiện-ích-riêng-cho-adonet)
 - [Tiện ích riêng cho EF](#tiện-ích-riêng-cho-ef)
@@ -48,7 +49,7 @@ dotnet tool install --global dotnet-ef --version 6.0.1
  
  `Note`: tùy thời điểm tuy nhiên hiện tại 2022 là từ 6.
  
- 4.Packages cần cài để code
+## Packages cần cài để code
  - Với Windows Forms App 
  
  Trường hợp bạn khai thác dữ liệu từ database bằng `EF (Entity Framework)`
