@@ -7,7 +7,7 @@
 - [Câu lệch tiện ích cài đặt EF](#Câu-lệch-tiện-ích-cài-đặt-EF)
 - [Tiện ích riêng cho ADO.NET](#tiện-ích-riêng-cho-adonet)
 - [Tiện ích riêng cho EF](#tiện-ích-riêng-cho-ef)
-- [Sự khác, giống nhau giữa các collection trong C#](#Sự-khác,-giống-nhau-giữa-các-collection-trong-C#)
+- [Sự khác, giống nhau giữa các collection trong C#](#sự-khác-giống-nhau-giữa-các-collection-trong-c)
 ## Lý Thuyết
 - [Đến Menu](#notebook_with_decorative_cover-Table-of-Contents)
 
