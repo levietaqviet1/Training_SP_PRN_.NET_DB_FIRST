@@ -422,6 +422,7 @@ var isAllStudentsOver20 = students.All(s => s.Age > 20);
 
 - [Đến Menu](#notebook_with_decorative_cover-Table-of-Contents)
 
+- Khác: 
 ArrayList: Lưu trữ các phần tử có kiểu dữ liệu object và không yêu cầu kiểu dữ liệu cho các phần tử. ArrayList cũng có thể chứa các giá trị null.
 
 SortedList: Lưu trữ các phần tử theo cặp <key, value> và tự động sắp xếp các phần tử theo key. SortedList chỉ cho phép sử dụng các kiểu dữ liệu làm key mà có thể so sánh.
@@ -430,3 +431,12 @@ Dictionary: Lưu trữ các phần tử theo cặp <key, value> nhưng không t�
 
 Hashtable: Tương tự như Dictionary, nhưng sử dụng các thuật toán băm để sắp xếp các phần tử theo key. Do đó, tốc độ tra cứu các phần tử trong Hashtable là nhanh hơn so với SortedList.
 
+Về các yếu tố khác: 
+
+Yêu cầu về kiểu dữ liệu: Nếu bạn muốn lưu trữ các phần tử có kiểu dữ liệu khác nhau, ArrayList là lựa chọn tốt nhất. Nếu bạn muốn sắp xếp các phần tử theo key, bạn có thể chọn SortedList hoặc Hashtable.
+
+Yêu cầu về tốc độ: Nếu bạn cần tra cứu các phần tử một cách nhanh chóng, bạn nên chọn Dictionary hoặc Hashtable. Tuy nhiên, Hashtable có tốc độ tra cứu nhanh hơn Dictionary vì nó sử dụng các thuật toán băm để sắp xếp các phần tử theo key.
+
+Yêu cầu về bộ nhớ: ArrayList và SortedList có thể chiếm nhiều bộ nhớ hơn Dictionary và Hashtable do việc sắp xếp các phần tử.
+
+Yêu cầu về tính linh hoạt: ArrayList và Dictionary cho phép bạn thêm, xóa hoặc sửa đổi các phần tử một cách linh hoạt. SortedList và Hashtable cũng có thể cho phép bạn thực hiện các thao tác tương tự, nhưng có thể tốn thời gian hơn do việc cần sắp xếp lại các phần tử sau mỗi lần thao
