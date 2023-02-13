@@ -423,6 +423,7 @@ var isAllStudentsOver20 = students.All(s => s.Age > 20);
 - [Đến Menu](#notebook_with_decorative_cover-Table-of-Contents)
 
 - Khác: 
+
 ArrayList: Lưu trữ các phần tử có kiểu dữ liệu object và không yêu cầu kiểu dữ liệu cho các phần tử. ArrayList cũng có thể chứa các giá trị null.
 
 SortedList: Lưu trữ các phần tử theo cặp <key, value> và tự động sắp xếp các phần tử theo key. SortedList chỉ cho phép sử dụng các kiểu dữ liệu làm key mà có thể so sánh.
