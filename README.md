@@ -7,6 +7,7 @@
 - [Câu lệch tiện ích cài đặt EF](#Câu-lệch-tiện-ích-cài-đặt-EF)
 - [Tiện ích riêng cho ADO.NET](#tiện-ích-riêng-cho-adonet)
 - [Tiện ích riêng cho EF](#tiện-ích-riêng-cho-ef)
+- [Sự khác, giống nhau giữa các collection trong C#](#Sự-khác,-giống-nhau-giữa-các-collection-trong-C#)
 ## Lý Thuyết
 - [Đến Menu](#notebook_with_decorative_cover-Table-of-Contents)
 
@@ -417,5 +418,13 @@ var isAllStudentsOver20 = students.All(s => s.Age > 20);
 
 `Sum`, `Min`, `Max` : Tính
 
+## Sự khác, giống nhau giữa các collection trong C#
 
+ArrayList: Lưu trữ các phần tử có kiểu dữ liệu object và không yêu cầu kiểu dữ liệu cho các phần tử. ArrayList cũng có thể chứa các giá trị null.
+
+SortedList: Lưu trữ các phần tử theo cặp <key, value> và tự động sắp xếp các phần tử theo key. SortedList chỉ cho phép sử dụng các kiểu dữ liệu làm key mà có thể so sánh.
+
+Dictionary: Lưu trữ các phần tử theo cặp <key, value> nhưng không tự động sắp xếp các phần tử. Dictionary sử dụng một cách hiệu quả các thuật toán băm để tra cứu các phần tử theo key.
+
+Hashtable: Tương tự như Dictionary, nhưng sử dụng các thuật toán băm để sắp xếp các phần tử theo key. Do đó, tốc độ tra cứu các phần tử trong Hashtable là nhanh hơn so với SortedList.
 
