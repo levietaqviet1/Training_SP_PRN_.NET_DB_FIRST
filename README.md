@@ -1,4 +1,4 @@
-# Training_SP_PRN_.NET
+# Training_SP_PRN_.NET_DB_FIRST
 
 # :notebook_with_decorative_cover: Table of Contents
 - [Lý Thuyết](#Lý-Thuyết)
