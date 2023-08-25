@@ -1,0 +1,137 @@
+Edit: Việt YS
+---------------------------------------------------
+Câu lệnh gen folder Modes sử dụng Entity Framework:
+
+dotnet ef dbcontext scaffold "server =localhost; database = Project3_SE1631;uid=sa;pwd=123;" Microsoft.EntityFrameworkCore.SqlServer --output-dir Models
+
+hoặc dùng cho Q2 PE để sử dụng Entity Framework:
+
+dotnet ef dbcontext scaffold "server =(local); database = PE_PRN_Fall22B1;uid=sa;pwd=123;TrustServerCertificate=true" Microsoft.EntityFrameworkCore.SqlServer --output-dir Models
+---
+Update Models
+dotnet ef dbcontext scaffold "server =localhost; database = PRN211DB;uid=sa;pwd=123;TrustServerCertificate=true" Microsoft.EntityFrameworkCore.SqlServer -o Models -f  
+---
+Create 1 vài bảng trứ ko gen cả
+dotnet ef dbcontext scaffold "server =localhost; database = Northwind;uid=sa;pwd=123;TrustServerCertificate=true" Microsoft.EntityFrameworkCore.SqlServer -o Models -t CAMPUSES
+----------------------------------------------------
+Đoạn code đọc file json trong hàm onconfig: ( với Entity Framework nhớ thay vào hàm đc dạy trong class có đuôi Context.cs )
+var builder = new ConfigurationBuilder()
+                              .SetBasePath(Directory.GetCurrentDirectory())
+                              .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+            IConfigurationRoot configuration = builder.Build();
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("MyCnn"));
+----------------------------------------------------
+kiem tra moi truong: dotnet tool list --global
+go ban thua :  dotnet tool uninstall  --global dotnet-ef
+ban can cai: dotnet tool install --global dotnet-ef --version 6.0.1
+----------------------------------------------------
+Microsoft.entityframeworkcore.design(6.0.1)
+Microsoft.entityframeworkcore.sqlserver(6.0.1)
+Microsoft.extensions.configuration.json(6.0.0)
+System.data.sqlclient(4.8.3)
+----------------------------------------------------
+Text trong appsettings.json :
+{
+  "ConnectionStrings": {
+    "MyCnn": "server=localhost;database=MyDB2;uid=sa;pwd=123"
+  }
+}
+Với ADO nên sài như này
+{
+  "ConnectionStrings": {
+    "MyCnn": "server=localhost;database=PRN211DB;uid=sa;pwd=123;MultipleActiveResultSets=True"
+  }
+}
+Với câu Q2 PE nên dùng 
+{
+  "ConnectionStrings": {
+    "MyCnn": "server=(local);database=MySaleDB;uid=sa;pwd=123;TrustServerCertificate=true"
+  }
+}
+----------------------------------------------------
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllersWithViews(); //Web hoat dong tren co so tu controller sang View
+var app = builder.Build();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}" // nhớ chỉnh controller
+    );
+app.Run();
+----------------------------------------------------
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers 
+@using Q2.Models;
+----------------------------------------------------
+Controllers
+Models
+Views
+----------------------------------------------------
+Ví dụ Query với ADO: 
+IDataReader dr = dataProvider.executeQuery2("SELECT *  FROM  Customers");
+            List<Customers> listCustomer = new List<Customers>();  
+            while (dr.Read())
+            {
+                Customers customer = new Customers();
+                customer.CustomerCode = dr.GetString(0);
+                customer.CustomerName = dr.GetString(1);
+                customer.Gender = dr.GetBoolean(2);
+                customer.Address = dr.GetString(3);
+                customer.DOB = dr.GetDateTime(4);
+                listCustomer.Add(customer);
+            }
+ IDataReader dr = dataProvider.executeQuery2("SELECT *  FROM  Customers  WHERE CustomerCode = '"+customers.CustomerCode+"'");
+                Customers customerSearch = new Customers();
+                while (dr.Read())
+                {
+                    customerSearch.CustomerCode = dr.GetString(0);
+                    customerSearch.CustomerName = dr.GetString(1);
+                    customerSearch.Gender = dr.GetBoolean(2);
+                    customerSearch.Address = dr.GetString(3);
+                    customerSearch.DOB = dr.GetDateTime(4);
+                }
+ bool dr = dataProvider.executeNonQuery("" +
+                    "UPDATE Customers   " +
+                    "SET CustomerName = '"+ customers.CustomerName + "' , " +
+                    "Gender = '"+ Gender + "', " +
+                    "Address = '"+customers.Address+"', " +
+                    "DOB = '"+customers.DOB+"' " +
+                    "WHERE CustomerCode ='"+customers.CustomerCode+"'");
+
+----------------------------------------------------
+Ví dụ Query với EF: 
+		var products = from a in context.Products where a.ProductCode == p.ProductCode select a;
+                Product product = (Product) products.FirstOrDefault(); 
+		----------- 
+		context.Products.Update(p);
+                context.SaveChanges();
+		-----------
+		var dataProduct = from a in context.Products where a.ProductName.Contains(p.ProductName) select a;
+		-----------
+		var dataProduct = from a in context.Products where a.Price > int.Parse(oldPrice) && a.Price < int.Parse(newPrice) select a;
+		-----------
+		var db = context.Customers.Where(r => r.CustomerId == int.Parse(id));
+		-----------
+		Để lấy thông tin từ 1 bảng con trong bảng cha thì dùng Include
+		 List<CourseSchedule> courseSchedules = _context.CourseSchedules.Include(x => x.Course).Include(x => x.Room).ToList(); 
+----------------------------------------------------
+ví dụ với Winfom sử dụng EF 
+		 var data = context.Customers.Select(item => new
+      	  	    {
+      	       	   	CustomerId = item.CustomerId,
+      	       	   	CustomerName = item.CustomerName,
+     	           	Birthdate = item.Birthdate,
+     	           	Gender = item.Gender,
+      	          	Address = item.Address
+      		    }).ToList();
+		txtDOB.DataBindings.Clear();
+            	txtDOB.DataBindings.Add("Text", data, "Birthdate"); 
+            	rdFemale.DataBindings.Clear();
+            	rdFemale.DataBindings.Add("Checked", data, "Gender");
+		numSalary.DataBindings.Clear();
+            	numSalary.DataBindings.Add("Value", data, "Salary");
+		-----------
+		Birthdate = DateTime.Parse(txtDOB.Text),
+		----------- lấy dữ liệu khi bấm vào dataGirdView cột 0 event CellClick
+		string id =  dgCustomer.Rows[e.RowIndex].Cells[0].FormattedValue.ToString(); 
+		-----------
+		Employee employee = context.Employees.FirstOrDefault(item => item.EmployeeId==id);
+		-----------
